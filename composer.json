@@ -27,6 +27,12 @@
             "email": "hello@alexbilbie.com",
             "homepage": "http://www.alexbilbie.com",
             "role": "Developer"
+        },
+        {
+            "name": "Likai",
+            "email": "youyuge@gmail.com",
+            "homepage": "http://www.youyuge.com",
+            "role": "Developer"
         }
     ],
     "autoload": {
@@ -37,11 +43,6 @@
     "autoload-dev": {
         "psr-4": {
             "League\\OAuth2\\Client\\Test\\": "test/src/"
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.3-dev"
         }
     }
 }
