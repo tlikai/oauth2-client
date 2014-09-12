@@ -24,7 +24,9 @@ class UserTest extends \PHPUnit_Framework_TestCase
             'location' => 'mock_location',
             'description' => 'mock_description',
             'imageUrl' => 'mock_imageUrl',
-            'urls' => 'mock_urls'
+            'urls' => 'mock_urls',
+            'gender' => 'mock_gender',
+            'locale' => 'mock_locale'
         );
     }
 
@@ -45,8 +47,6 @@ class UserTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException PHPUnit_Framework_Error_Notice
-     * Acutal exception expected below but magic testing on phpunit give above
      * @expectedException \OutOfRangeException
      */
     public function testInvalidMagicSet()

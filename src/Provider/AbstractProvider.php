@@ -8,13 +8,15 @@ use League\OAuth2\Client\Token\AccessToken as AccessToken;
 use League\OAuth2\Client\Exception\IDPException as IDPException;
 use League\OAuth2\Client\Grant\GrantInterface;
 
-abstract class AbstractProvider
+abstract class AbstractProvider implements ProviderInterface
 {
     public $clientId = '';
 
     public $clientSecret = '';
 
     public $redirectUri = '';
+
+    public $state;
 
     public $name;
 
@@ -83,12 +85,12 @@ abstract class AbstractProvider
 
     public function getAuthorizationUrl($options = array())
     {
-        $state = md5(uniqid(rand(), true));
+        $this->state = md5(uniqid(rand(), true));
 
         $params = array(
             'client_id' => $this->clientId,
             'redirect_uri' => $this->redirectUri,
-            'state' => $state,
+            'state' => $this->state,
             'scope' => is_array($this->scopes) ? implode($this->scopeSeparator, $this->scopes) : $this->scopes,
             'response_type' => isset($options['response_type']) ? $options['response_type'] : 'code',
             'approval_prompt' => 'auto'
